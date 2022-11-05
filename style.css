@@ -1,0 +1,157 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --card-border-color: #ffda44;
+  --card-date-border-color: #746615;
+  --card-bg-color: #1d1c19;
+  --bg-overlay: url(./assets/bg-overlays/bg-yellow.svg);
+}
+
+/* theme variables */
+body.blue {
+  --card-border-color: #338af3;
+  --card-date-border-color: #338af3;
+  --card-bg-color: #202024;
+  --bg-overlay: url(./assets/bg-overlays/bg-blue.svg);
+}
+
+body.green {
+  --card-border-color: #047c3f;
+  --card-date-border-color: #047c3f;
+  --card-bg-color: #1a1f1b;
+  --bg-overlay: url(./assets/bg-overlays/bg-green.svg);
+}
+/* final theme variables */
+
+body {
+  font-family: "Roboto", sans-serif;
+
+  background: #121214 var(--bg-overlay);
+  background-position-y: 20%;
+  background-position-x: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#app {
+  width: fit-content;
+  margin: 52px auto;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 63px;
+}
+
+ul {
+  list-style: none;
+}
+
+#cards {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.card {
+  padding: 32px 23px;
+
+  text-align: center;
+
+  background: var(--card-bg-color);
+  border-bottom: 2px solid var(--card-border-color);
+  border-radius: 6px;
+
+  opacity: 0;
+  animation: apper 0.2s forwards;
+}
+
+.card h2 {
+  width: fit-content;
+
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  padding: 8px 16px;
+  margin-inline: auto;
+  margin-bottom: 53px;
+
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 125%;
+
+  border: 1px solid var(--card-date-border-color);
+  border-radius: 6px;
+  color: #f7dd43;
+}
+
+.card h2 span {
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 800;
+
+  color: #e1e1e6;
+}
+
+.card ul {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.card ul li {
+  width: 270px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card ul li + li {
+  padding-top: 24px;
+
+  border-top: 1px solid #323238;
+}
+
+.card ul li strong {
+  font-size: 36px;
+  font-weight: 900;
+  line-height: 125%;
+
+  color: #e1e1e6;
+}
+
+.card ul li img:hover {
+  transform: scale(1.1);
+}
+
+.card ul li img {
+  transition: transform 300ms;
+}
+
+/* keyframes */
+@keyframes apper {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+/* media */
+@media (min-width: 700px) {
+  #cards {
+    max-width: 670px;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
